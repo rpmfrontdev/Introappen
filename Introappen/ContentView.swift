@@ -18,13 +18,14 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             
             
-            Text("Hello, world!")
+            Text("Buenos!")
                 .font(.title)
                 .foregroundColor(Color("fancycolor"))
             
             
         }
-        .padding()
+        .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+        
     }
 }
 
