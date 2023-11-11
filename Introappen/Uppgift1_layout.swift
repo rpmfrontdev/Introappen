@@ -1,16 +1,16 @@
 //
-//  ContentView.swift
+//  Uppgift1_layout.swift
 //  Introappen
 //
-//  Created by Rene Mbanguka on 2023-11-10.
+//  Created by Rene Mbanguka on 2023-11-11.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct Uppgift1_layout: View {
     
     var body: some View {
+        
         VStack {
             
             Image(systemName: "globe")
@@ -25,6 +25,8 @@ struct ContentView: View {
                 .frame(width: 250)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             
+            Spacer()
+            
             HStack {
                 Spacer()
                 Text ("AAA")
@@ -34,10 +36,14 @@ struct ContentView: View {
                 Text ("CCC")
                 Spacer()
             }
-           
+            
+            .background(.green)
+            .padding()
+            
+            
         }
-        .padding()
-        Spacer()
+        
+        
         
             Text ("Hej")
 
@@ -45,7 +51,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    Uppgift1_layout()
 }
-
-
