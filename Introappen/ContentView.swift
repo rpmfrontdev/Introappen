@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @State var people = ["Arne", "Bengt", "Caesar"]
     
+    @State var letsgo = false
     
     var body: some View {
         
@@ -23,16 +24,34 @@ struct ContentView: View {
                 Image(systemName: "globe")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
+                //.navigationTitle("Välkommen")
                 
                 
                 Text("Hello, World!")
                     .font(.largeTitle)
+                //.navigationTitle("Välkommen")
+                
+                NavigationLink(destination: ReadmoreView (thename: "Apple")) {
+                    Text ("Läs mer här")
+                }
+                
+                //.background(.blue)
+                //.frame(width: 250)
+                //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 
                 
-
-                    //.background(.blue)
-                    //.frame(width: 250)
-                    //.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+                Button(action: {
+                    if(addname != ""){
+                        letsgo = true
+                    }
+                    
+                }) {
+                    Text("Gå till vyn")
+                }
+                
+                
+                
+                
                 
                 HStack{
                     TextField("Skriv namn", text: $addname)
@@ -43,42 +62,45 @@ struct ContentView: View {
                     }) {
                         Text("Lägg till")
                     }
-
+                    
                 }
                 
-                List (people, id: \.self) {person in 
+                List (people, id: \.self) {person in
                     
                     NavigationLink(destination: ReadmoreView(thename: person)) {PersonRowView( personname: person)}
                     
                     
-                   // HStack{
-                        //Text(person)
-                        //Text ("ABC")
-                   // }
+                    // HStack{
+                    //Text(person)
+                    //Text ("ABC")
+                    // }
                 }
                 
-     /*
-            HStack {
-                    Spacer()
-                    Text ("AAA")
-                    Spacer()
-                    Text ("BBB Mera text")
-                    Spacer()
-                    Text ("CCC")
-                    Spacer()
-                }
-    */
-               
+                /*
+                 HStack {
+                 Spacer()
+                 Text ("AAA")
+                 Spacer()
+                 Text ("BBB Mera text")
+                 Spacer()
+                 Text ("CCC")
+                 Spacer()
+                 }
+                 */
+                
             }
             .padding()
-            Spacer()
+            .navigationTitle("Välkommen")
+            .navigationDestination(isPresented: $letsgo) {
+                
+                ReadmoreView(thename: addname)
+            }
             
-                Text ("Hej")
-
+            
         } // SLUT Body
-            
-        }
         
+    }
+    
     
 } // SLUT VIEW
 
