@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var addname = ""
+    
+    @State var people = ["Arne", "Bengt", "Caesar"]
+    
     
     var body: some View {
         VStack {
@@ -25,7 +29,27 @@ struct ContentView: View {
                 .frame(width: 250)
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
             
-            HStack {
+            HStack{
+                TextField("Skriv nam,n", text: $addname)
+                
+                Button(action: {
+                    people.append(addname)
+                    addname = ""
+                }) {
+                    Text("Lägg till")
+                }
+
+            }
+            
+            List (people, id: \.self) {person in PersonRowView( personname: person)
+               // HStack{
+                    //Text(person)
+                    //Text ("ABC")
+               // }
+            }
+            
+ /*           
+        HStack {
                 Spacer()
                 Text ("AAA")
                 Spacer()
@@ -34,6 +58,7 @@ struct ContentView: View {
                 Text ("CCC")
                 Spacer()
             }
+*/
            
         }
         .padding()
